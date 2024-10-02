@@ -1,25 +1,111 @@
+/* Custom Font - Regular */
+@font-face {
+    font-family: 'KHMenu'; /* Name for your custom font */
+    src: url('fonts/KHMenu.woff2') format('woff2'); /* Path to your regular .woff2 file */
+    font-weight: normal; /* Regular weight */
+    font-style: normal; /* Regular style */
+}
+
+/* Custom Font - Bold */
+@font-face {
+    font-family: 'KHMenu'; /* Name for your custom font */
+    src: url('fonts/KHMenu-Bold.woff2') format('woff2'); /* Path to your bold .woff2 file */
+    font-weight: bold; /* Bold weight */
+    font-style: normal; /* Regular style */
+}
+
+/* Custom Font - Italic */
+@font-face {
+    font-family: 'KHMenu'; /* Name for your custom font */
+    src: url('fonts/KHMenu-Italic.woff2') format('woff2'); /* Path to your italic .woff2 file */
+    font-weight: normal; /* Regular weight */
+    font-style: italic; /* Italic style */
+}
+
+/* Custom Font - Bold Italic */
+@font-face {
+    font-family: 'KHMenu'; /* Name for your custom font */
+    src: url('fonts/KHMenu-BoldItalic.woff2') format('woff2'); /* Path to your bold italic .woff2 file */
+    font-weight: bold; /* Bold weight */
+    font-style: italic; /* Italic style */
+}
+
+/* CSS Variables for Colors */
+:root {
+    --background-color: #f0f0f0;
+    --header-background-color: #e0e0e0;
+    --button-background-color: #333;
+    --button-hover-background-color: #555;
+    --info-background-color: #d3d3d3;
+    --menu-hover-background-color: #ccc;
+}
+
+/* Global styling */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'KHMenu', sans-serif; /* Apply the custom font */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e0e0e0;
+    background-color: var(--header-background-color);
     padding: 10px 20px;
+    margin-bottom: 0; /* Ensure no bottom margin */
 }
 
-.logo h1 {
+/* Only reset margin and padding between header and main content */
+main {
+    padding: 0;
+    text-align: center;
+}
+
+/* Ensure no gap between header and showcase section */
+.showcase {
+    background-color: var(--background-color);
+    padding: 50px;
+    margin: 0; /* Remove any margin above this section */
+}
+
+/* Updated class name from .video to .picture */
+.picture img {
+    max-width: 100%; /* Allow images to be responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.read-more {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--button-background-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    background-color: var(--button-hover-background-color);
+}
+
+/* Info section styling */
+.info {
+    background-color: var(--info-background-color);
+    padding: 20px;
+}
+
+.info h3 {
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
+.info p {
+    font-size: 16px;
+}
+
+/* Menu styling */
 nav ul {
     list-style: none;
     display: flex;
@@ -33,30 +119,33 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #ccc;
+    background-color: var(--menu-hover-background-color);
     border-radius: 4px;
 }
 
+/* Hidden class for menu */
+.hidden {
+    display: none;
+}
+
+/* Menu icon styling */
 .menu-icon {
     display: none;
     font-size: 28px;
     cursor: pointer;
 }
 
+/* Mobile styles */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #e0e0e0;
+        background-color: var(--header-background-color);
         width: 200px;
         padding: 15px;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .hidden {
-        display: none;
     }
 
     .menu-icon {
@@ -68,44 +157,13 @@ nav ul li a:hover {
     }
 }
 
-main {
-    text-align: center;
-    margin-top: 20px;
-}
+/* On larger screens, show the menu all the time */
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none;
+    }
 
-.showcase {
-    background-color: #f0f0f0;
-    padding: 50px;
-}
-
-.video h2 {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.read-more {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.read-more:hover {
-    background-color: #555;
-}
-
-.info {
-    background-color: #d3d3d3;
-    padding: 20px;
-}
-
-.info h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.info p {
-    font-size: 16px;
+    nav ul {
+        display: flex !important;
+    }
 }
