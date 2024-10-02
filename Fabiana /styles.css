@@ -1,0 +1,51 @@
+body {
+    font-family: 'Minecraft', sans-serif;
+    margin: 0;
+    padding: 20px;
+
+background-color: hsla(178, 81%, 79%, 0.662) ;
+}
+header {
+    background: #3c763d;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 2em;
+}
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    background: #5cb85c;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+nav a:hover {
+    background: #4cae4c;
+}
+section {
+    background: #fdf7c1;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+}
+.block {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 5px;
+}
+.grass { background: #4caf50; }
+.dirt { background: #8b4513; }
+.stone { background: #7c7c7c; }
+
