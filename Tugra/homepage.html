@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Website</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -12,13 +13,13 @@
             <h1>GAME LOGO</h1>
         </div>
         <nav>
-            <ul>
+            <ul id="menu" class="menu hidden">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Story</a></li>
                 <li><a href="#">Characters</a></li>
                 <li><a href="#">Games</a></li>
             </ul>
-            <div class="menu-icon">
+            <div class="menu-icon" onclick="toggleMenu()">
                 <span>&#9776;</span>
             </div>
         </nav>
