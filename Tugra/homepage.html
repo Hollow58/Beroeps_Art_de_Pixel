@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Website</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script> <!-- Use defer to ensure script loads after HTML -->
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/Kingdom_Hearts_II_logo_KHII.png" alt="KH2 logo" width="150px" length="50px">
+            <img src="images/Kingdom_Hearts_II_logo_KHII.png" alt="KH2 logo" width="150" height="50"> <!-- Use height instead of length -->
         </div>
         <nav>
             <ul id="menu" class="menu hidden">
@@ -27,18 +28,18 @@
     <main>
         <section class="showcase">
             <div class="picture">
-                <!-- Replacing the text with the image -->
-                <img src="images/Kingdom_Hearts_II_logo_KHII.png" alt="KH2 logo" width="500px">
+                <!-- Using the image as the showcase -->
+                <img src="images/Kingdom_Hearts_II_logo_KHII.png" alt="KH2 logo" width="500">
             </div>
             <button class="read-more">Read more</button>
         </section>
 
         <section class="info">
             <h3>INFO</h3>
-            <p>Kingdom Hearts 2 is a game made by </p>
+            <p>Kingdom Hearts 2 is a game published by <strong>Square Enix</strong>.</p> <!-- Use <strong> for emphasis -->
         </section>
     </main>
-
-    <script src="script.js"></script>
+    
+    <script src="script.js" defer></script> <!-- Ensure your script file is correctly linked -->
 </body>
 </html>
