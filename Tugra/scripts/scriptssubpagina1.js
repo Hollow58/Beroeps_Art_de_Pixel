@@ -16,19 +16,28 @@ function selectCharacter(characterNumber) {
 
     // Update character model image source and make it visible
     var characterImage = document.getElementById('selected-character-model');
+    
+    // Log the character selection
+    console.log('Character selected:', characterNumber);
+
     switch (characterNumber) {
         case 1:
-            characterImage.src = '../images/characters/SoraKH2.png'; // Path for Character 1
+            characterImage.src = 'scripts/images/SoraKH2.jpg'; // Adjusted path
+            console.log('Image source set to:', characterImage.src); // Log the image source
             break;
         case 2:
-            characterImage.src = '../images/characters/RikuKH2.png'; // Path for Character 2
+            characterImage.src = 'scripts/images/RikuKH2.jpg'; // Adjusted path
+            console.log('Image source set to:', characterImage.src); // Log the image source
             break;
         case 3:
-            characterImage.src = 'images/characters/Character3.png'; // Path for Character 3
+            characterImage.src = 'images/characters/Character3.png'; // Adjusted path
+            console.log('Image source set to:', characterImage.src); // Log the image source
             break;
         case 4:
-            characterImage.src = 'images/characters/Character4.png'; // Path for Character 4
+            characterImage.src = 'images/characters/Character4.png'; // Adjusted path
+            console.log('Image source set to:', characterImage.src); // Log the image source
             break;
     }
+    
     characterImage.style.display = 'block'; // Show the image
 }
