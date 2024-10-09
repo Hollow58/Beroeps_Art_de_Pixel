@@ -1,7 +1,7 @@
 /* Custom Font - Regular */
 @font-face {
     font-family: 'KHMenu'; /* Name for your custom font */
-    src: url('fonts/KHMenu.woff2') format('woff2'); /* Path to your regular .woff2 file */
+    src: url('/Tugra/fonts/KHMenu.woff2') format('woff2'); /* Path to your regular .woff2 file */
     font-weight: normal; /* Regular weight */
     font-style: normal; /* Regular style */
 }
@@ -9,7 +9,7 @@
 /* Custom Font - Bold */
 @font-face {
     font-family: 'KHMenu'; /* Name for your custom font */
-    src: url('fonts/KHMenu-Bold.woff2') format('woff2'); /* Path to your bold .woff2 file */
+    src: url('/Tugra/fonts/KHMenu-Bold.woff2') format('woff2'); /* Path to your bold .woff2 file */
     font-weight: bold; /* Bold weight */
     font-style: normal; /* Regular style */
 }
@@ -17,7 +17,7 @@
 /* Custom Font - Italic */
 @font-face {
     font-family: 'KHMenu'; /* Name for your custom font */
-    src: url('fonts/KHMenu-Italic.woff2') format('woff2'); /* Path to your italic .woff2 file */
+    src: url('/Tugra/fonts/KHMenu-Italic.woff2') format('woff2'); /* Path to your italic .woff2 file */
     font-weight: normal; /* Regular weight */
     font-style: italic; /* Italic style */
 }
@@ -25,7 +25,7 @@
 /* Custom Font - Bold Italic */
 @font-face {
     font-family: 'KHMenu'; /* Name for your custom font */
-    src: url('fonts/KHMenu-BoldItalic.woff2') format('woff2'); /* Path to your bold italic .woff2 file */
+    src: url('/Tugra/fonts/KHMenu-BoldItalic.woff2') format('woff2'); /* Path to your bold italic .woff2 file */
     font-weight: bold; /* Bold weight */
     font-style: italic; /* Italic style */
 }
@@ -42,11 +42,15 @@
 
 /* Global styling */
 * {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
     box-sizing: border-box;
 }
 
 body {
     font-family: 'KHMenu', sans-serif; /* Apply the custom font */
+    margin: 0; /* Ensure no margin around the body */
+    background-color: var(--background-color); /* Set body background color */
 }
 
 header {
@@ -55,7 +59,6 @@ header {
     align-items: center;
     background-color: var(--header-background-color);
     padding: 10px 20px;
-    margin-bottom: 0; /* Ensure no bottom margin */
 }
 
 /* Only reset margin and padding between header and main content */
@@ -71,7 +74,6 @@ main {
     margin: 0; /* Remove any margin above this section */
 }
 
-/* Updated class name from .video to .picture */
 .picture img {
     max-width: 100%; /* Allow images to be responsive */
     height: auto; /* Maintain aspect ratio */
