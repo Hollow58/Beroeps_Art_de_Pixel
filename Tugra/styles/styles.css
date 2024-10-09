@@ -61,22 +61,33 @@ header {
     padding: 10px 20px;
 }
 
-/* Only reset margin and padding between header and main content */
 main {
     padding: 0;
     text-align: center;
+    position: relative; /* Allow positioning of video */
 }
 
-/* Ensure no gap between header and showcase section */
 .showcase {
-    background-color: var(--background-color);
-    padding: 50px;
+    position: relative; /* Position relative for video layering */
+    padding: 50px 0; /* Add top and bottom padding */
     margin: 0; /* Remove any margin above this section */
 }
 
-.picture img {
-    max-width: 100%; /* Allow images to be responsive */
-    height: auto; /* Maintain aspect ratio */
+.background-video {
+    position: absolute; /* Position absolute to fill showcase */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Ensure the video covers the section */
+    transform: translate(-50%, -50%); /* Center the video */
+    z-index: 1; /* Set the video behind other elements */
+    opacity: 0.5;
+}
+
+.logo-image {
+    position: relative; /* Position logo image to layer above video */
+    z-index: 2; /* Set logo above the video */
 }
 
 .read-more {
@@ -86,6 +97,8 @@ main {
     color: white;
     border: none;
     cursor: pointer;
+    position: relative; /* Allow layering */
+    z-index: 2; /* Ensure button is above the video */
 }
 
 .read-more:hover {
@@ -96,6 +109,8 @@ main {
 .info {
     background-color: var(--info-background-color);
     padding: 20px;
+    z-index: 2; /* Ensure info section is above the video */
+    position: relative; /* Allow positioning */
 }
 
 .info h3 {

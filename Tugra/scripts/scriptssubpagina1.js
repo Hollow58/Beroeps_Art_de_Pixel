@@ -13,5 +13,22 @@ function selectCharacter(characterNumber) {
     var characterName = document.getElementById('char-name' + characterNumber).innerHTML;
     document.getElementById('character-name').innerHTML = characterName;
     document.getElementById('character-description').innerHTML = 'This is the description for ' + characterName + '.';
-    document.getElementById('character-image').innerHTML = 'Character ' + characterNumber + ' Model';
+
+    // Update character model image source and make it visible
+    var characterImage = document.getElementById('selected-character-model');
+    switch (characterNumber) {
+        case 1:
+            characterImage.src = '../images/characters/SoraKH2.png'; // Path for Character 1
+            break;
+        case 2:
+            characterImage.src = '../images/characters/RikuKH2.png'; // Path for Character 2
+            break;
+        case 3:
+            characterImage.src = 'images/characters/Character3.png'; // Path for Character 3
+            break;
+        case 4:
+            characterImage.src = 'images/characters/Character4.png'; // Path for Character 4
+            break;
+    }
+    characterImage.style.display = 'block'; // Show the image
 }
