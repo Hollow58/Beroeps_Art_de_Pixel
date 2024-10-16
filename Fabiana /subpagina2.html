@@ -1,0 +1,137 @@
+
+
+<div class="image-carousel">
+    <img id="carouselImage" src="image1.jpg" class="image" alt="Minecraft Build">
+    <button onclick="prevImage()">&#10094;</button>
+    <button onclick="nextImage()">&#10095;</button>
+</div>
+
+<script>
+    const images = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Add your images here
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const carouselImage = document.getElementById('carouselImage');
+        carouselImage.src = images[index];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+
+    showImage(currentIndex); // Initialize the carousel
+</script>
+
+<style>
+.image-carousel {
+    position: relative;
+    max-width: 800px; /* Match content width */
+    margin: 20px auto; /* Center the carousel */
+}
+
+.image-carousel img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.image-carousel button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.image-carousel button:first-of-type {
+    left: 10px;
+}
+
+.image-carousel button:last-of-type {
+    right: 10px;
+}
+</style>
+
+<div class="faq">
+    <h3 onclick="toggleFAQ(this)">What is Minecraft?</h3>
+    <p class="faq-answer">Minecraft is a game about placing blocks to build anything you can imagine. Play in creative mode with unlimited resources or mine deep into the world in survival mode, crafting weapons and armor to fend off dangerous mobs.</p>
+
+    <h3 onclick="toggleFAQ(this)">How do I craft items?</h3>
+    <p class="faq-answer">To craft items, open your inventory and drag items into the crafting grid to create new items.</p>
+</div>
+
+<script>
+    function toggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; // Toggle display
+    }
+
+    // Hide all answers initially
+    document.querySelectorAll('.faq-answer').forEach(answer => answer.style.display = 'none');
+</script>
+
+<style>
+.faq h3 {
+    cursor: pointer;
+    color: #00796b;
+}
+
+.faq p {
+    padding: 10px 0;
+}
+</style>
+
+<style>
+    html {
+        scroll-behavior: smooth; /* Enables smooth scrolling */
+    }
+    </style>
+   
+   <div class="comments-section">
+    <h2>Leave a Comment</h2>
+    <form id="commentForm">
+        <textarea id="comment" rows="4" placeholder="Write your comment here..."></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="commentsDisplay"></div>
+</div>
+
+<script>
+    document.getElementById('commentForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent page reload
+        const comment = document.getElementById('comment').value;
+        const commentsDisplay = document.getElementById('commentsDisplay');
+        const newComment = document.createElement('p');
+        newComment.textContent = comment; // Display new comment
+        commentsDisplay.appendChild(newComment);
+        document.getElementById('comment').value = ''; // Clear input
+    });
+</script>
+
+<style>
+.comments-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f0f0f0; /* Light gray for comment section */
+    border-radius: 8px;
+}
+
+.comments-section textarea {
+    width: 100%; /* Full width */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.comments-section button {
+    margin-top: 10px;
+}
+</style>

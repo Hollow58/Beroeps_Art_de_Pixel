@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5; /* Light gray background */
+    color: #333; /* Dark text */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Improved line spacing */
+}
+
+header {
+    background-color: #6db65c; /* Grass block color */
+    color: white; /* White text */
+    padding: 20px;
+    text-align: center;
+    font-size: 24px; /* Larger font for header */
+    border-bottom: 4px solid #4caf50; /* Darker green border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.5s; /* Smooth background change */
+}
+
+header:hover {
+    background-color: #4caf50; /* Change color on hover */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #00796b;
+    text-align: center;
+}
+
+h3 {
+    color: #004d40;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0 20px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #004d40;
+}
+
+.image {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.tips {
+    background-color: #e8f5e9;
+    border-left: 5px solid #4caf50;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Center the links */
+    background-color: #4caf50; /* Green background for the nav */
+    padding: 10px 0; /* Padding for the nav */
+    border-bottom: 2px solid #388e3c; /* Darker green border for the nav */
+}
+
+nav a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding around links */
+    margin: 0 10px; /* Space between links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+nav a:hover {
+    background-color: #388e3c; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}

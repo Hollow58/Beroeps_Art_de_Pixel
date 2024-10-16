@@ -1,0 +1,54 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    animation: fadeIn 0.5s ease; /* Apply animation to content */
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack links vertically on small screens */
+    }
+
+    nav a {
+        margin: 10px 0; /* Space out links */
+    }
+}
+
+.comments-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f0f0f0; /* Light gray for comment section */
+    border-radius: 8px;
+}
+
+.comments-section textarea {
+    width: 100%; /* Full width */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.comments-section button {
+    margin-top: 10px;
+}
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+.faq h3 {
+    cursor: pointer;
+    color: #00796b;
+}
+
+.faq p {
+    padding: 10px 0;
+}
