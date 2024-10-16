@@ -1,0 +1,210 @@
+/* Custom Font - Regular */
+@font-face {
+    font-family: 'KHMenu';
+    src: url('/Tugra/fonts/KHMenu.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Custom Font - Bold */
+@font-face {
+    font-family: 'KHMenu';
+    src: url('/Tugra/fonts/KHMenu-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --background-color: #f0f0f0;
+    --header-background-color: #e0e0e0;
+    --button-background-color: #333;
+    --button-hover-background-color: #555;
+    --info-background-color: #d3d3d3;
+    --menu-hover-background-color: #ccc;
+    --game-box-background: #eaeaea;
+    --game-box-hover-background: #d9d9d9;
+    --game-info-color: #555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'KHMenu', sans-serif;
+    background-color: var(--background-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-background-color);
+    padding: 10px 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.game-logo {
+    width: 360px; /* Wider rectangles */
+    height: 280px;
+    background-color: var(--game-box-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.game-logo img {
+    max-width: 80%;
+    max-height: 80%;
+    transition: all 0.5s ease; /* Smooth transition for resizing */
+}
+
+.game-logo p {
+    margin-top: 15px; /* Increased margin for better spacing */
+    transition: all 0.3s ease;
+}
+
+.game-logo:hover {
+    background-color: var(--game-box-hover-background);
+}
+
+/* Active state when a logo is clicked */
+.game-logo.active {
+    justify-content: flex-start;
+    padding-top: 10px;
+}
+
+.game-logo.active img {
+    position: absolute; /* Keep it absolute */
+    top: 10px;
+    left: 10px;
+    animation: resizeLogo 0.5s forwards ease; /* Change to resizing animation */
+}
+
+/* Define the keyframes for resizing the logo */
+@keyframes resizeLogo {
+    0% {
+        width: 80%; /* Start with the original size */
+        height: auto; /* Keep aspect ratio */
+    }
+    100% {
+        width: 80px; /* Adjust final size for better visibility */
+        height: auto; /* Keep aspect ratio */
+    }
+}
+
+.game-logo .game-info {
+    display: none;
+    text-align: left;
+    color: var(--game-info-color);
+    font-size: 14px;
+    margin-top: 40px; /* Increased margin for better spacing */
+}
+
+.game-logo.active .game-info {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    animation: fadeIn 0.5s ease-in; /* Fade-in effect for the game info */
+}
+
+/* Info fields inside the game logos */
+.game-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.game-info p {
+    margin: 5px 0;
+}
+
+/* Fade-in animation for game info */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    background-color: var(--menu-hover-background-color);
+    border-radius: 4px;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: var(--header-background-color);
+        width: 200px;
+        padding: 15px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .games-container {
+        grid-template-columns: 1fr 1fr; /* Change to 2 columns on smaller screens */
+    }
+
+    .game-logo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-container {
+        grid-template-columns: 1fr; /* Change layout to 1 column on mobile */
+    }
+
+    .game-logo {
+        width: 100%;
+    }
+}
