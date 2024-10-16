@@ -49,12 +49,16 @@
 
 body {
     font-family: 'KHMenu', sans-serif; /* Apply the custom font */
-    margin: 0; /* Ensure no margin around the body */
     background-color: var(--background-color); /* Set body background color */
-    height: 100vh; /* Full height */
 }
 
+/* Fixed header styling */
 header {
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it stays above other content */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,31 +84,43 @@ nav ul li a:hover {
     color: black; /* Keep color black on hover */
 }
 
-/* Character container styling */
+/* Main content styling */
+main {
+    padding-top: 160px; /* Add padding to ensure main content does not overlap the header */
+}
+
 .character-container {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     background-color: white;
     margin: 0; /* Remove any margin */
-    flex-grow: 1; /* Allows it to fill the remaining space */
+}
+
+.character-image {
+    width: 30%;
+    height: 300px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-image img {
+    max-width: 100%; /* Ensure image fits within the container */
+    max-height: 100%; /* Ensure image fits within the container */
+    display: none; /* Initially hidden */
 }
 
 .character-info {
-    width: 100%; /* Use full width for centered text */
-    text-align: center; /* Center text in character info */
+    width: 40%;
+    padding: 0 20px;
 }
 
 .character-list {
     display: flex;
     flex-direction: column;
     width: 25%;
-}
-
-/* Centered text styling */
-.centered-text {
-    text-align: center; /* Center the text */
-    margin: 20px 0; /* Add some margin for spacing */
 }
 
 .character-option {

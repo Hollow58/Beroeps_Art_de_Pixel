@@ -41,7 +41,7 @@ nav a:hover {
     background: #4cae4c;
 }
 section {
-    background: #fdf7c1;
+    background: #949494;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -63,8 +63,27 @@ footer {
 .stone { background: #7c7c7c; }
 
 .button-icon {
-    width: 100px;
-    height: 40px;
+    width: 500px;
+    height: 270px;
     margin-right: 10px;
 }
- 
+
+@keyframes blink {
+    0% {
+        opacity: 1; /* Volledig zichtbaar */
+    }
+    50% {
+        opacity: 0; /* Volledig onzichtbaar */
+    }
+    100% {
+        opacity: 1; /* Volledig zichtbaar */
+    }
+}
+
+/* Stijl voor de knipperende tekst */
+.blinking-text {
+    font-size: 35px; /* Grootte van de tekst */
+    color: rgb(255, 255, 255); /* Kleur van de tekst */
+    animation: blink 5s infinite; /* De animatie toepassen */
+}
+
