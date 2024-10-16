@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="meerinfo.html">Meer info</a></li>
+            <li><a href="makers.html">Makers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="link-button">
+            <a href="index.html">
+                <img src="Temple-Run-Logo.webp" alt="Icon" class="button-icon">
+            </a>
+        </div>
+    </nav>
+    <main>
+        <h1>Neem Contact Op</h1>
+        <div class="text-box">
+            <p>Als je vragen of opmerkingen hebt, vul dan het onderstaande formulier in. We zullen zo snel mogelijk contact met je opnemen.</p>
+        </div>
+        <form action="verzonden.html">
+            <div class="form-group">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Bericht:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-button">Verstuur</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
