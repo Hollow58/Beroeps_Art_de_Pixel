@@ -1,20 +1,8 @@
-body {
-    @font-face 
-        font-family: 'Minecraft';
-        src: url('images/');
-    
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; /* Ensure the background doesn't repeat */
-    height: 100vh;
-    display: flex;
-    flex-direction: column; /* Ensure content is stacked vertically */
-    align-items: center; /* Horizontally center content */
-    justify-content: flex-start; /* Start content at the top */
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds a nice shadow effect for better readability */
+
+p {
+    background-image: url('');
+    padding: 15px;
+    color: #fff; /* Ensure text is readable */
 }
 
 header {
@@ -24,21 +12,25 @@ header {
     text-align: center;
     font-size: 2em;
 }
+
 nav {
     margin: 20px 0;
     text-align: center;
 }
+
 nav a {
-    margin: 0 15px;
+    margin: 0 20px;
     text-decoration: none;
     color: #fff;
     background: #6aaa5b;
-    padding: 10px 15px;
+    padding: 12px 24px;
     border-radius: 5px;
 }
+
 nav a:hover {
     background: #4cae4c;
 }
+
 section {
     background: #949494;
     padding: 20px;
@@ -46,6 +38,7 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
+
 footer {
     text-align: center;
     margin-top: 20px;
@@ -53,7 +46,9 @@ footer {
 }
 
 .small-box {
-width: 1000px;
+    width: 100%; /* Changed to full width */
+    max-width: 1000px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the box */
 }
 
 .block {
@@ -63,29 +58,27 @@ width: 1000px;
     margin: 5px;
 }
 
-
 .button-icon {
-    width: 500px;
-    height: 270px;
+    width: 100%; /* Changed to full width */
+    max-width: 500px; /* Max width for larger screens */
+    height: auto; /* Maintain aspect ratio */
     margin-right: 10px;
 }
 
 @keyframes blink {
     0% {
-        opacity: 1; /* Volledig zichtbaar */
+        opacity: 1; /* Fully visible */
     }
     50% {
-        opacity: 0; /* Volledig onzichtbaar */
+        opacity: 0; /* Fully invisible */
     }
     100% {
-        opacity: 1; /* Volledig zichtbaar */
+        opacity: 1; /* Fully visible */
     }
 }
 
-/* Stijl voor de knipperende tekst */
 .blinking-text {
-    font-size: 35px; /* Grootte van de tekst */
-    color: rgb(255, 255, 255); /* Kleur van de tekst */
-    animation: blink 5s infinite; /* De animatie toepassen */
+    font-size: 35px; /* Size of the text */
+    color: rgb(255, 255, 255); /* Color of the text */
+    animation: blink 5s infinite; /* Apply the animation */
 }
-
