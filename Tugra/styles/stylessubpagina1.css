@@ -98,13 +98,15 @@ main {
 }
 
 .character-image {
-    width: 30%;
-    height: 300px;
+    width: 25%; /* Adjusted width */
+    height: 400px; /* Increased height */
     border: 2px solid black;
-    display: flex;
+    display: none; /* Initially hidden */
     justify-content: center;
     align-items: center;
 }
+
+
 
 .character-image img {
     max-width: 100%; /* Ensure image fits within the container */
