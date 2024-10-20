@@ -1,105 +1,123 @@
 let soraSelectCount = 0; // Counter for Sora selections
 let isRoxas = false; // Track if current character is Roxas
+const selectSound = new Audio('./sounds/SelectKH2.mp3'); // Create an Audio object
 
 function selectCharacter(characterNumber) {
+    // Reset the audio to the beginning and play the sound
+    selectSound.currentTime = 0;
+    selectSound.play();
+
     // Reset all character options
-    var characterOptions = document.getElementsByClassName('character-option');
-    for (var i = 0; i < characterOptions.length; i++) {
+    const characterOptions = document.getElementsByClassName('character-option');
+    for (let i = 0; i < characterOptions.length; i++) {
         characterOptions[i].classList.remove('selected');
     }
 
     // Select the clicked character
-    var selectedOption = document.getElementById('option' + characterNumber);
+    const selectedOption = document.getElementById('option' + characterNumber);
     selectedOption.classList.add('selected');
 
     // Update character display
-    var characterName;
-    var characterImage = document.getElementById('selected-character-model');
-    var characterIcon = selectedOption.querySelector('.icon'); // Get the selected icon
+    let characterName;
+    let characterDescription;
+    const characterImage = document.getElementById('selected-character-model');
+    const characterIcon = selectedOption.querySelector('.icon'); // Get the selected icon
 
     switch (characterNumber) {
         case 1: // Sora
-            // Check if currently in Roxas form
             if (isRoxas) {
-                // If currently Roxas, switch back to Sora
-                characterImage.src = './images/characters/SoraKH2.png'; // Sora's image
-                characterName = 'Sora'; // Reset name to Sora
-                document.getElementById('char-name1').innerHTML = 'Sora'; // Reset name in the select bar
-
-                // Change the icon back to Sora
-                var soraOption = document.getElementById('option1'); // Sora's option
-                var soraIcon = soraOption.querySelector('.icon'); // Get the icon element
-                soraIcon.src = './images/characters/SoraIcon.png'; // Change back to Sora's icon
-
-                isRoxas = false; // Reset Roxas state
+                characterImage.src = './images/characters/SoraKH2.png';
+                characterName = 'Sora';
+                document.getElementById('char-name1').innerHTML = 'Sora';
+                const soraOption = document.getElementById('option1');
+                const soraIcon = soraOption.querySelector('.icon');
+                soraIcon.src = './images/characters/SoraIcon.png';
+                isRoxas = false;
             } else {
-                characterImage.src = './images/characters/SoraKH2.png'; // Sora's image
-                soraSelectCount++; // Increment the Sora counter
+                characterImage.src = './images/characters/SoraKH2.png';
+                soraSelectCount++;
                 characterName = 'Sora';
             }
+            characterDescription = 'Sora is a cheerful and determined Keyblade wielder who fights to protect his friends and the worlds from darkness.';
             break;
         case 2: // Riku
-            // Reset to Sora's state if currently in Roxas form
             if (isRoxas) {
-                characterImage.src = './images/characters/SoraKH2.png'; // Sora's image
-                characterName = 'Sora'; // Reset name to Sora
-                document.getElementById('char-name1').innerHTML = 'Sora'; // Reset name in the select bar
-                
-                // Change the icon back to Sora
-                var soraOption = document.getElementById('option1'); // Sora's option
-                var soraIcon = soraOption.querySelector('.icon'); // Get the icon element
-                soraIcon.src = './images/characters/SoraIcon.png'; // Change back to Sora's icon
-                
-                isRoxas = false; // Reset Roxas state
+                characterImage.src = './images/characters/SoraKH2.png';
+                characterName = 'Sora';
+                document.getElementById('char-name1').innerHTML = 'Sora';
+                const soraOption = document.getElementById('option1');
+                const soraIcon = soraOption.querySelector('.icon');
+                soraIcon.src = './images/characters/SoraIcon.png';
+                isRoxas = false;
             }
-            characterImage.src = './images/characters/RikuKH2.png'; // Riku's image
-            soraSelectCount = 0; // Reset counter if a different character is selected
+            characterImage.src = './images/characters/RikuKH2.png';
+            soraSelectCount = 0;
             characterName = 'Riku';
+            characterDescription = 'Riku is Sora\'s best friend, a skilled Keyblade master who struggles with his inner darkness but ultimately seeks redemption.';
             break;
-        case 3: // Character 3
-            characterImage.src = './images/characters/KairiKH2.png'; // Character 3's image
-            soraSelectCount = 0; // Reset counter if a different character is selected
+        case 3: // Kairi
+            characterImage.src = './images/characters/KairiKH2.png';
+            soraSelectCount = 0;
             characterName = 'Kairi';
-            isRoxas = false; // Reset Roxas state
+            characterDescription = 'Kairi is one of the seven Princesses of Heart and Sora\'s close friend, often serving as his motivation and source of strength.';
+            isRoxas = false;
             break;
-        case 4: // Character 4
-            characterImage.src = './images/characters/GoofyKH2.png'; // Character 4's image
-            soraSelectCount = 0; // Reset counter if a different character is selected
+        case 4: // Goofy
+            characterImage.src = './images/characters/GoofyKH2.png';
+            soraSelectCount = 0;
             characterName = 'Goofy';
-            isRoxas = false; // Reset Roxas state
+            characterDescription = 'Goofy is a captain of King Mickey\'s royal guard, always loyal and surprisingly wise despite his clumsy nature.';
+            isRoxas = false;
+            break;
+        case 5: // Donald
+            characterImage.src = './images/characters/DonaldKH2.png';
+            soraSelectCount = 0;
+            characterName = 'Donald';
+            characterDescription = 'Donald Duck is the royal court magician, short-tempered but powerful with magic, and always by Sora\'s side in battle.';
+            isRoxas = false;
+            break;
+        case 6: // Mickey
+            characterImage.src = './images/characters/MickeyKH2.png';
+            soraSelectCount = 0;
+            characterName = 'Mickey';
+            characterDescription = 'King Mickey is the wise and powerful ruler of Disney Castle, a Keyblade master who guides Sora in his journey.';
+            isRoxas = false;
             break;
     }
 
-    // Update character info display
-    // Check for Easter egg condition
+    // Check for Easter egg condition (Roxas)
     if (soraSelectCount === 4 && !isRoxas) {
-        // Change to Roxas
-        characterImage.src = './images/characters/RoxasKH2.png'; // Roxas's image
-        characterName = 'Roxas'; // Change name to Roxas
-        document.getElementById('character-description').innerHTML = 'This is Roxas, the Keyblade wielder of Organization XIII.';
-
-        // Change Sora's icon to Roxas's icon in the character select bar
-        var soraOption = document.getElementById('option1'); // Sora's option
-        var soraIcon = soraOption.querySelector('.icon'); // Get the icon element
-        soraIcon.src = './images/characters/RoxasIcon.png'; // Change to Roxas icon
+        characterImage.src = './images/characters/RoxasKH2.png';
+        characterName = 'Roxas';
+        characterDescription = 'Roxas is Sora\'s Nobody, a Keyblade wielder with a conflicted heart, torn between friendship and duty to the Organization.';
         
-        // Change the character name in the character select bar
-        document.getElementById('char-name1').innerHTML = 'Roxas'; // Change Sora's name to Roxas
-
-        isRoxas = true; // Set state to Roxas
-        soraSelectCount = 0; // Reset counter after the Easter egg is triggered
+        const soraOption = document.getElementById('option1');
+        const soraIcon = soraOption.querySelector('.icon');
+        soraIcon.src = './images/characters/RoxasIcon.png';
+        document.getElementById('char-name1').innerHTML = 'Roxas';
+        
+        isRoxas = true;
+        soraSelectCount = 0;
     }
 
     // Update character name and description
     document.getElementById('character-name').innerHTML = characterName;
-
-    // Update character description
-    if (!isRoxas) {
-        document.getElementById('character-description').innerHTML = 'This is ' + characterName + '.';
-    } else {
-        document.getElementById('character-description').innerHTML = 'This is Roxas, the Keyblade wielder of Organization XIII.';
-    }
+    document.getElementById('character-description').innerHTML = characterDescription;
 
     characterImage.style.display = 'block'; // Show the image
     document.querySelector('.character-image').style.display = 'flex'; // Make the container visible
 }
+
+// Function to update time in the footer
+function updateTime() {
+    const footerTime = document.getElementById('footer-time');
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    footerTime.innerHTML = `Current Time: ${hours}:${minutes}:${seconds}`;
+}
+
+// Initialize time update every second
+setInterval(updateTime, 1000);
+updateTime(); // Call once to set immediately

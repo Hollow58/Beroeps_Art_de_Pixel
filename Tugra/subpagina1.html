@@ -11,7 +11,7 @@
     <header>
         <div class="logo">
             <a href="homepage.html">
-                <img src="images/Kingdom_Hearts_II_logo_KHII.png" alt="KH2 logo" width="150" height="120"> <!-- Logo Image -->
+                <img src="images/Kingdom_Hearts_2_logo.svg.png" alt="KH2 logo" height="120"> <!-- Logo Image -->
             </a>
         </div>
         <nav>
@@ -25,13 +25,6 @@
 
     <main>
         <div class="character-container">
-            <div class="character-image">
-                <img id="selected-character-model" src="" alt="Character Model" style="display: none;"> <!-- Image for the selected character model -->
-            </div>
-            <div class="character-info">
-                <h2 id="character-name">Choose Your Character</h2>
-                <p id="character-description"></p>
-            </div>
             <div class="character-list">
                 <div class="character-option" onclick="selectCharacter(1)" id="option1">
                     <img class="icon" src="images/characters/SoraIcon.png" alt="Sora Icon"> <!-- Character 1 Icon -->
@@ -49,8 +42,28 @@
                     <img class="icon" src="images/characters/GoofyIcon.png" alt="Character 4 Icon"> <!-- Character 4 Icon -->
                     <div class="name" id="char-name4">Goofy</div>
                 </div>
+                <div class="character-option" onclick="selectCharacter(5)" id="option5">
+                    <img class="icon" src="images/characters/DonaldIcon.png" alt="Donald Icon"> <!-- Character 5 Icon -->
+                    <div class="name" id="char-name5">Donald</div>
+                </div>
+                <div class="character-option" onclick="selectCharacter(6)" id="option6">
+                    <img class="icon" src="images/characters/MickeyIcon.png" alt="Mickey Icon"> <!-- Character 6 Icon -->
+                    <div class="name" id="char-name6">Mickey</div>
+                </div>
+            </div>
+            <div class="character-image">
+                <img id="selected-character-model" src="" alt="Character Model" style="display: none;"> <!-- Image for the selected character model -->
+            </div>
+            <div class="character-info">
+                <h2 id="character-name">Choose Your Character</h2>
+                <p id="character-description"></p>
             </div>
         </div>
     </main>
+
+    <!-- Footer with the time display -->
+    <footer>
+        <div id="footer-time"></div> <!-- Time display will go here -->
+    </footer>
 </body>
 </html>

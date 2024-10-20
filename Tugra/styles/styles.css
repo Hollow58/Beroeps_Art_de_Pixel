@@ -32,12 +32,18 @@
 
 /* CSS Variables for Colors */
 :root {
-    --background-color: #f0f0f0;
-    --header-background-color: #e0e0e0;
-    --button-background-color: #333;
-    --button-hover-background-color: #555;
-    --info-background-color: #d3d3d3;
-    --menu-hover-background-color: #ccc;
+    --background-color: #000000; /* Page background set to black */
+    --header-background-color: #00003c; /* Header background */
+    --footer-background-color: #00003c; /* Footer background */
+    --menu-background-color: #000080; /* Menu background */
+    --menu-edge-color: #0000e2; /* Menu edge color */
+    --button-highlight: grey; /* Button highlight color */
+    --button-selected-border: #ff0000; /* Brighter red for selected border */
+    --gradient-color: #420000; /* Deep red for gradient */
+    --text-color: white; /* Text color */
+    --button-background-color: #333; /* Button background */
+    --button-hover-background-color: #555; /* Button hover background */
+    --info-background-color: rgba(255, 255, 255, 0.9); /* Info background with transparency */
 }
 
 /* Global styling */
@@ -49,68 +55,113 @@
 
 body {
     font-family: 'KHMenu', sans-serif; /* Apply the custom font */
-    margin: 0; /* Ensure no margin around the body */
     background-color: var(--background-color); /* Set body background color */
+    color: var(--text-color); /* Set text color */
 }
 
+/* Fixed header styling */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--header-background-color);
     padding: 10px 20px;
+    border-bottom: 3px solid #0000f3; /* Header bottom border */
 }
 
+/* Menu styling */
+nav {
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white; /* White text for menu links */
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    background-color: var(--menu-hover-background-color); /* Change background on hover */
+}
+
+/* Footer styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--footer-background-color);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'KHMenu', sans-serif;
+    color: #1ae4fa; /* Footer text color */
+    border-top: 3px solid #0000f3; /* Footer top border */
+}
+
+/* Time display in footer */
+#footer-time {
+    font-family: 'KHMenu', sans-serif;
+    font-size: 16px;
+}
+
+/* Main content styling */
 main {
-    padding: 0;
-    text-align: center;
-    position: relative; /* Allow positioning of video */
+    padding-top: 70px; /* Adjust for fixed header height */
 }
 
+/* Showcase styling */
 .showcase {
     position: relative; /* Position relative for video layering */
     padding: 50px 0; /* Add top and bottom padding */
-    margin: 0; /* Remove any margin above this section */
+    margin-top: 70px; /* Push down the showcase below the fixed header */
 }
 
 .background-video {
     position: absolute; /* Position absolute to fill showcase */
-    top: 50%; /* Center vertically */
+    top: 0; /* Start from the top of the showcase */
     left: 50%; /* Center horizontally */
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    height: 100vh; /* Full viewport height */
     object-fit: cover; /* Ensure the video covers the section */
-    transform: translate(-50%, -50%); /* Center the video */
+    transform: translate(-50%, 0); /* Center the video horizontally */
     z-index: 1; /* Set the video behind other elements */
-    opacity: 0.5;
+    opacity: 0.8; /* Adjust opacity of the video for better visibility */
 }
+
 
 .logo-image {
-    position: relative; /* Position logo image to layer above video */
-    z-index: 2; /* Set logo above the video */
-}
-
-.read-more {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: var(--button-background-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    position: relative; /* Allow layering */
-    z-index: 2; /* Ensure button is above the video */
-}
-
-.read-more:hover {
-    background-color: var(--button-hover-background-color);
+    position: absolute; /* Position logo absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering transformation */
+    z-index: 2; /* Set logo above the background video */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background to enhance logo visibility */
+    padding: 20px; /* Add padding for a nicer look */
+    border-radius: 10px; /* Rounded corners for the logo */
 }
 
 /* Info section styling */
 .info {
-    background-color: var(--info-background-color);
     padding: 20px;
-    z-index: 2; /* Ensure info section is above the video */
+    z-index: 3; /* Ensure info section is above the video and logo */
     position: relative; /* Allow positioning */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Column layout */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
 }
 
 .info h3 {
@@ -122,22 +173,47 @@ main {
     font-size: 16px;
 }
 
-/* Menu styling */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+/* Box styling for sections */
+.info-grid {
+    display: grid; /* Grid layout for info boxes */
+    grid-template-columns: repeat(3, 1fr); /* First row has 3 columns */
+    gap: 20px; /* Space between boxes */
+    margin: 0 auto; /* Center the grid */
+    max-width: 1200px; /* Maximum width for the grid */
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: black;
-    padding: 5px 10px;
+/* Info box styling */
+.info-box {
+    background-color: var(--info-background-color); /* Background color for boxes */
+    padding: 15px; /* Increased padding for better text spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    min-height: 150px; /* Set a minimum height for the boxes */
+    width: 90%; /* Make boxes thinner */
+    margin: 0 auto; /* Center each box */
 }
 
-nav ul li a:hover {
-    background-color: var(--menu-hover-background-color);
-    border-radius: 4px;
+/* Adjust font sizes */
+.info-box h4 {
+    margin: 0 0 10px 0; /* Adjust margin for better spacing */
+    font-size: 20px; /* Increase the heading font size */
+}
+
+.info-box ul,
+.info-box p {
+    margin: 0; /* Remove margins for tighter spacing */
+    font-size: 18px; /* Increase text size for better readability */
+    list-style-type: none; /* Remove list dots */
+}
+
+/* Styles for the last row (Reception and Legacy) */
+.last-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for last row */
+    gap: 20px; /* Space between boxes */
+    margin: 40px auto 0; /* Center the grid and add top margin for spacing */
+    max-width: 800px; /* Maximum width for the second grid */
+    justify-items: center; /* Center items within the grid */
 }
 
 /* Hidden class for menu */
@@ -157,10 +233,10 @@ nav ul li a:hover {
     nav ul {
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 60px; /* Adjust for header height */
         right: 0;
         background-color: var(--header-background-color);
-        width: 200px;
+        width: 200px; /* Set width for mobile menu */
         padding: 15px;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     }
@@ -172,6 +248,15 @@ nav ul li a:hover {
     nav ul.show {
         display: flex;
     }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */
+    }
+
+    .last-row {
+        grid-template-columns: 1fr; /* Stack items in the last row */
+        width: 100%; /* Full width for last row */
+    }
 }
 
 /* On larger screens, show the menu all the time */
@@ -181,6 +266,6 @@ nav ul li a:hover {
     }
 
     nav ul {
-        display: flex !important;
+        display: flex !important; /* Ensure the menu displays as a flex container */
     }
 }
