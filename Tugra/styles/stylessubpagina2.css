@@ -39,7 +39,7 @@
 }
 
 :root {
-    --background-color: #f0f0f0;
+    --background-color: #000000;
     --header-background-color: #00003c; /* Updated from CSS1 */
     --footer-background-color: #00003c; /* Updated from CSS1 */
     --button-background-color: #333;
@@ -48,9 +48,9 @@
     --menu-background-color: #000080;
     --menu-edge-color: #0000e2;
     --menu-hover-background-color: #ccc;
-    --game-box-background: #eaeaea;
-    --game-box-hover-background: #d9d9d9;
-    --game-info-color: #555;
+    --game-box-background: #000000;
+    --game-box-hover-background: #ffffff11;
+    --game-info-color: #ffffff;
 }
 
 * {
@@ -85,6 +85,9 @@ h1 {
 
 nav {
     position: relative;
+}
+p{
+    color: white;
 }
 
 .menu {
@@ -130,24 +133,21 @@ footer {
     border-top: 3px solid #0000f3; /* Border color */
     margin-top: auto; /* Push the footer to the bottom */
 }
-
 main {
-    padding-top: 70px; /* Adjust for fixed header height */
-    min-height: calc(100vh - 70px - 40px); /* Adjust for footer height */
+    padding-top: 100px; /* Adjust for fixed header height, increased from 70px */
+    min-height: calc(100vh - 100px - 40px); /* Adjust for footer height */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space between content and footer */
 }
-
 .games-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
     gap: 20px;
     justify-items: center;
-    margin-bottom: 40px;
+    margin: 20px 0; /* Add margin to push the boxes down */
     padding: 0 20px;
 }
-
 .game-logo {
     width: 360px; /* Wider rectangles */
     height: 280px;
@@ -156,12 +156,28 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 3px solid #d21212;
+    border-radius: 25px 0 25px 0;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s ease;
+}
+
+.game-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black; /* Initially black */
+    transition: background 0.3s ease;
+    z-index: -1; /* Behind the content */
+}
+
+.game-logo:hover::before {
+    background: linear-gradient(to top, red, black); /* Red gradient at the bottom on hover */
 }
 
 .game-logo img {
@@ -176,7 +192,7 @@ main {
 }
 
 .game-logo:hover {
-    background-color: var(--game-box-hover-background);
+    background-color: var(--game-box-hover-background); /* Keep original background color on hover */
 }
 
 /* Active state when a logo is clicked */
