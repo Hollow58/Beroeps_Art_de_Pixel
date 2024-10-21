@@ -26,7 +26,7 @@ function displayGameInfo(gameId) {
     // Replace with actual game data
     const gameData = {
         1: {
-            title: "Kingdom Hearts",
+            title: "Kingdom Hearts I",
             releaseDate: "March 28, 2002",
             genre: "Action RPG",
             platforms: "PS2, PS3, PS4, PS5, Xbox One, Nintendo Switch"
@@ -90,3 +90,14 @@ function displayGameInfo(gameId) {
         <p>Platforms: ${gameDetails.platforms}</p>
     `;
 }
+
+// Function to update time in the footer
+function updateTime() {
+    const now = new Date();
+    const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    document.getElementById('time').textContent = now.toLocaleTimeString(undefined, options);
+}
+
+// Call updateTime every second
+setInterval(updateTime, 1000);
+updateTime(); // Initial call to set the time immediately

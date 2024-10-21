@@ -14,12 +14,39 @@
     font-style: normal;
 }
 
+/* Custom Font - Italic */
+@font-face {
+    font-family: 'KHMenu';
+    src: url('/Tugra/fonts/KHMenu-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Custom Font - Bold Italic */
+@font-face {
+    font-family: 'KHMenu';
+    src: url('/Tugra/fonts/KHMenu-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Custom Font for Clock */
+@font-face {
+    font-family: 'KHGummi';
+    src: url('/Tugra/fonts/KHGummi.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --background-color: #f0f0f0;
-    --header-background-color: #e0e0e0;
+    --header-background-color: #00003c; /* Updated from CSS1 */
+    --footer-background-color: #00003c; /* Updated from CSS1 */
     --button-background-color: #333;
     --button-hover-background-color: #555;
     --info-background-color: #d3d3d3;
+    --menu-background-color: #000080;
+    --menu-edge-color: #0000e2;
     --menu-hover-background-color: #ccc;
     --game-box-background: #eaeaea;
     --game-box-hover-background: #d9d9d9;
@@ -38,16 +65,78 @@ body {
 }
 
 header {
+    position: fixed; /* Fixed position to keep it at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure the header is always on top */
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--header-background-color);
     padding: 10px 20px;
+    border-bottom: 3px solid #0000f3; /* Border color */
 }
 
 h1 {
     text-align: center;
     margin: 20px 0;
+}
+
+nav {
+    position: relative;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    background-color: var(--menu-background-color);
+    border-radius: 25px;
+    border: 2px solid var(--menu-edge-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Changed to white */
+    padding: 5px 10px;
+}
+
+.menu-icon {
+    display: none; /* Hidden by default */
+    font-size: 28px;
+    cursor: pointer;
+}
+
+footer {
+    position: relative; /* Change to relative */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--footer-background-color);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'KHGummi', sans-serif;
+    color: #1ae4fa; /* Footer text color */
+    border-top: 3px solid #0000f3; /* Border color */
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+main {
+    padding-top: 70px; /* Adjust for fixed header height */
+    min-height: calc(100vh - 70px - 40px); /* Adjust for footer height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between content and footer */
 }
 
 .games-container {
@@ -151,29 +240,7 @@ h1 {
     }
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: black;
-    padding: 5px 10px;
-}
-
-nav ul li a:hover {
-    background-color: var(--menu-hover-background-color);
-    border-radius: 4px;
-}
-
-.menu-icon {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-}
-
+/* Responsive styles */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -187,7 +254,7 @@ nav ul li a:hover {
     }
 
     .menu-icon {
-        display: block;
+        display: block; /* Show menu icon on mobile */
     }
 
     .games-container {
@@ -195,7 +262,7 @@ nav ul li a:hover {
     }
 
     .game-logo {
-        width: 100%;
+        width: 100%; /* Full width for logos */
     }
 }
 
@@ -205,6 +272,6 @@ nav ul li a:hover {
     }
 
     .game-logo {
-        width: 100%;
+        width: 100%; /* Full width for logos */
     }
 }
