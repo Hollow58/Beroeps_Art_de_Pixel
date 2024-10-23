@@ -1,53 +1,47 @@
-// JavaScript to toggle game info on click
 function displayGameInfo(gameId) {
     const gameLogos = document.querySelectorAll('.game-logo');
     const selectedGame = document.getElementById('game' + gameId);
+    const clickSound = document.getElementById('ZoomKH');
+    const outSound = document.getElementById('OutKH');
 
-    // Check if the selected game is already active
     const isActive = selectedGame.classList.contains('active');
 
-    // Remove 'active' class from all game logos and reset game names visibility
     gameLogos.forEach((logo) => {
-        logo.classList.remove('active');
-        const gameName = logo.querySelector('p');
-        if (gameName) {
-            gameName.style.display = 'block'; // Show game name for all
-        }
-
-        // Hide game info for all logos with fade-out animation
         const gameInfo = logo.querySelector('.game-info');
+        const gameName = logo.querySelector('p');
+
+        logo.classList.remove('active');
         if (gameInfo) {
-            gameInfo.classList.remove('fade-in'); // Remove fade-in class
-            gameInfo.classList.add('fade-out'); // Add fade-out class to start hiding
+            gameInfo.classList.remove('fade-in');
+            gameInfo.classList.add('fade-out');
+        }
+        if (gameName) {
+            gameName.style.display = 'block';
         }
     });
 
-    // If the selected game was not active, activate it
     if (!isActive) {
+        clickSound.play();
         selectedGame.classList.add('active');
 
-        // Hide the game name of the clicked game
         const selectedGameName = selectedGame.querySelector('p');
         if (selectedGameName) {
-            selectedGameName.style.display = 'none'; // Hide the game name of the selected game
+            selectedGameName.style.display = 'none';
         }
 
-        // Populate the game info inside the selected logo
         const gameInfo = selectedGame.querySelector('.game-info');
-
-        // Replace with actual game data
-        const gameData = {
+        const gameDetails = {
             1: {
                 title: "Kingdom Hearts I",
                 releaseDate: "March 28, 2002",
                 genre: "Action RPG",
-                platforms: "PS2, PS3, PS4, PS5, Xbox One, Nintendo Switch"
+                platforms: "PS2, PS3, PS4, Xbox One, Nintendo Switch"
             },
             2: {
                 title: "Kingdom Hearts II",
                 releaseDate: "December 22, 2005",
                 genre: "Action RPG",
-                platforms: "PS2, PS3, PS4, PS5, Xbox One, Nintendo Switch"
+                platforms: "PS2, PS3, PS4, Xbox One, Nintendo Switch"
             },
             3: {
                 title: "Kingdom Hearts III",
@@ -93,26 +87,35 @@ function displayGameInfo(gameId) {
             }
         };
 
-        // Populate the selected game logo with its respective info
-        const gameDetails = gameData[gameId];
+        const gameDetailsInfo = gameDetails[gameId];
         gameInfo.innerHTML = `
-            <h3>${gameDetails.title}</h3>
-            <p>Release Date: ${gameDetails.releaseDate}</p>
-            <p>Genre: ${gameDetails.genre}</p>
-            <p>Platforms: ${gameDetails.platforms}</p>
+            <h3>${gameDetailsInfo.title}</h3>
+            <p>Release Date: ${gameDetailsInfo.releaseDate}</p>
+            <p>Genre: ${gameDetailsInfo.genre}</p>
+            <p>Platforms: ${gameDetailsInfo.platforms}</p>
         `;
-        gameInfo.classList.remove('fade-out'); // Remove fade-out class
-        gameInfo.classList.add('fade-in'); // Add fade-in class to show
+        gameInfo.classList.remove('fade-out');
+        gameInfo.classList.add('fade-in');
+    } else {
+        outSound.play();
+        selectedGame.classList.remove('active');
+        const gameInfo = selectedGame.querySelector('.game-info');
+        if (gameInfo) {
+            gameInfo.classList.remove('fade-in');
+            gameInfo.classList.add('fade-out');
+        }
+        const selectedGameName = selectedGame.querySelector('p');
+        if (selectedGameName) {
+            selectedGameName.style.display = 'block';
+        }
     }
 }
 
-// Function to update time in the footer
 function updateTime() {
+    const footerTime = document.getElementById('footer-time');
     const now = new Date();
-    const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    document.getElementById('time').textContent = now.toLocaleTimeString(undefined, options);
+    footerTime.innerHTML = `Current Time: ${now.toLocaleTimeString()}`;
 }
 
-// Call updateTime every second
 setInterval(updateTime, 1000);
-updateTime(); // Initial call to set the time immediately
+updateTime();

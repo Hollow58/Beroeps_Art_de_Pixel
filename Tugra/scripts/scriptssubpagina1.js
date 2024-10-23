@@ -1,30 +1,25 @@
-let soraSelectCount = 0; // Counter for Sora selections
-let isRoxas = false; // Track if current character is Roxas
-const selectSound = new Audio('./sounds/SelectKH2.mp3'); // Create an Audio object
+let soraSelectCount = 0;
+let isRoxas = false;
+const selectSound = new Audio('./sounds/SelectKH2.mp3'); 
 
 function selectCharacter(characterNumber) {
-    // Reset the audio to the beginning and play the sound
     selectSound.currentTime = 0;
     selectSound.play();
 
-    // Reset all character options
     const characterOptions = document.getElementsByClassName('character-option');
     for (let i = 0; i < characterOptions.length; i++) {
         characterOptions[i].classList.remove('selected');
     }
 
-    // Select the clicked character
     const selectedOption = document.getElementById('option' + characterNumber);
     selectedOption.classList.add('selected');
 
-    // Update character display
     let characterName;
     let characterDescription;
     const characterImage = document.getElementById('selected-character-model');
-    const characterIcon = selectedOption.querySelector('.icon'); // Get the selected icon
-
+    const characterIcon = selectedOption.querySelector('.icon'); 
     switch (characterNumber) {
-        case 1: // Sora
+        case 1: 
             if (isRoxas) {
                 characterImage.src = './images/characters/SoraKH2.png';
                 characterName = 'Sora';
@@ -40,7 +35,7 @@ function selectCharacter(characterNumber) {
             }
             characterDescription = 'Sora is a cheerful and determined Keyblade wielder who fights to protect his friends and the worlds from darkness.';
             break;
-        case 2: // Riku
+        case 2:
             if (isRoxas) {
                 characterImage.src = './images/characters/SoraKH2.png';
                 characterName = 'Sora';
@@ -55,28 +50,28 @@ function selectCharacter(characterNumber) {
             characterName = 'Riku';
             characterDescription = 'Riku is Sora\'s best friend, a skilled Keyblade master who struggles with his inner darkness but ultimately seeks redemption.';
             break;
-        case 3: // Kairi
+        case 3:
             characterImage.src = './images/characters/KairiKH2.png';
             soraSelectCount = 0;
             characterName = 'Kairi';
             characterDescription = 'Kairi is one of the seven Princesses of Heart and Sora\'s close friend, often serving as his motivation and source of strength.';
             isRoxas = false;
             break;
-        case 4: // Goofy
+        case 4:
             characterImage.src = './images/characters/GoofyKH2.png';
             soraSelectCount = 0;
             characterName = 'Goofy';
             characterDescription = 'Goofy is a captain of King Mickey\'s royal guard, always loyal and surprisingly wise despite his clumsy nature.';
             isRoxas = false;
             break;
-        case 5: // Donald
+        case 5: 
             characterImage.src = './images/characters/DonaldKH2.png';
             soraSelectCount = 0;
             characterName = 'Donald';
             characterDescription = 'Donald Duck is the royal court magician, short-tempered but powerful with magic, and always by Sora\'s side in battle.';
             isRoxas = false;
             break;
-        case 6: // Mickey
+        case 6:
             characterImage.src = './images/characters/MickeyKH2.png';
             soraSelectCount = 0;
             characterName = 'Mickey';
@@ -85,7 +80,6 @@ function selectCharacter(characterNumber) {
             break;
     }
 
-    // Check for Easter egg condition (Roxas)
     if (soraSelectCount === 4 && !isRoxas) {
         characterImage.src = './images/characters/RoxasKH2.png';
         characterName = 'Roxas';
@@ -100,15 +94,13 @@ function selectCharacter(characterNumber) {
         soraSelectCount = 0;
     }
 
-    // Update character name and description
     document.getElementById('character-name').innerHTML = characterName;
     document.getElementById('character-description').innerHTML = characterDescription;
 
     characterImage.style.display = 'block'; // Show the image
-    document.querySelector('.character-image').style.display = 'flex'; // Make the container visible
+    document.querySelector('.character-image').style.display = 'flex';
 }
 
-// Function to update time in the footer
 function updateTime() {
     const footerTime = document.getElementById('footer-time');
     const now = new Date();
@@ -118,6 +110,5 @@ function updateTime() {
     footerTime.innerHTML = `Current Time: ${hours}:${minutes}:${seconds}`;
 }
 
-// Initialize time update every second
 setInterval(updateTime, 1000);
-updateTime(); // Call once to set immediately
+updateTime();

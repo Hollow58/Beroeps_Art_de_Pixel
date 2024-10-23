@@ -1,4 +1,4 @@
-/* Custom Font - Regular */
+/* Custom Fonts */
 @font-face {
     font-family: 'KHMenu';
     src: url('/Tugra/fonts/KHMenu.woff2') format('woff2');
@@ -6,7 +6,6 @@
     font-style: normal;
 }
 
-/* Custom Font - Bold */
 @font-face {
     font-family: 'KHMenu';
     src: url('/Tugra/fonts/KHMenu-Bold.woff2') format('woff2');
@@ -14,7 +13,6 @@
     font-style: normal;
 }
 
-/* Custom Font - Italic */
 @font-face {
     font-family: 'KHMenu';
     src: url('/Tugra/fonts/KHMenu-Italic.woff2') format('woff2');
@@ -22,7 +20,6 @@
     font-style: italic;
 }
 
-/* Custom Font - Bold Italic */
 @font-face {
     font-family: 'KHMenu';
     src: url('/Tugra/fonts/KHMenu-BoldItalic.woff2') format('woff2');
@@ -30,7 +27,6 @@
     font-style: italic;
 }
 
-/* Custom Font for Clock */
 @font-face {
     font-family: 'KHGummi';
     src: url('/Tugra/fonts/KHGummi.woff2') format('woff2');
@@ -54,7 +50,7 @@
     --info-background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Global styling */
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -67,13 +63,13 @@ body {
     color: var(--text-color);
 }
 
-/* Fixed header styling */
+/* Header Styles */
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* Ensure the header is always on top */
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,7 +78,7 @@ header {
     border-bottom: 3px solid #0000f3;
 }
 
-/* Menu styling */
+/* Navigation Styles */
 nav {
     position: relative;
 }
@@ -99,11 +95,9 @@ nav ul li a {
     padding: 5px 10px;
 }
 
-
-/* Footer styling */
-/* Footer styling */
+/* Footer Styles */
 footer {
-    position: relative; /* Change to relative */
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -114,25 +108,25 @@ footer {
     align-items: center;
     color: #1ae4fa;
     border-top: 3px solid #0000f3;
-    margin-top: auto; /* Push the footer to the bottom */
+    margin-top: auto;
 }
 
-/* Main content styling */
+/* Main Content Styles */
 main {
     padding-top: 70px; /* Adjust for fixed header height */
-    min-height: calc(100vh - 70px - 40px); /* Adjust for footer height */
+    min-height: calc(100vh - 110px); /* Adjust for header and footer height */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space between content and footer */
+    justify-content: space-between;
 }
 
-/* Time display in footer */
+/* Time Display in Footer */
 #footer-time {
     font-family: 'KHGummi', sans-serif;
     font-size: 16px;
 }
 
-/* Menu */
+/* Menu Styles */
 .menu {
     list-style: none;
     display: flex;
@@ -143,13 +137,10 @@ main {
     border: 2px solid var(--menu-edge-color);
 }
 
-
+/* Showcase Styles */
 .showcase {
     position: relative;
-    padding: 0; /* Remove padding to eliminate extra space */
-    margin-top: 0; /* Set to 0 for tight alignment */
-    z-index: 0; /* Ensure the showcase is positioned correctly */
-    height: calc(100vh - 70px); /* Full viewport height minus the header height */
+    height: calc(100vh - 70px);
 }
 
 .background-video {
@@ -157,14 +148,13 @@ main {
     top: 0;
     left: 50%;
     width: 100%;
-    height: 80vh; /* Adjusted height */
+    height: 80vh;
     object-fit: cover;
     transform: translateX(-50%);
     z-index: 1;
-    opacity: 0.5; /* Adjust video opacity if needed */
+    opacity: 0.5;
 }
 
-/* White overlay */
 .background-video::before {
     content: "";
     position: absolute;
@@ -172,11 +162,11 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* White overlay with 50% opacity */
-    z-index: 2; /* Ensure the overlay appears above the video */
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 2;
 }
 
-/* Info section styling */
+/* Info Section Styles */
 .info {
     padding: 20px;
     z-index: 3;
@@ -185,7 +175,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -78px; /* Adjusted margin to -78px */
+    margin-top: -78px;
 }
 
 .info h3 {
@@ -197,18 +187,18 @@ main {
     font-size: 16px;
 }
 
-/* Logo styling */
+/* Logo Styles */
 .logo-image {
     position: absolute;
-    top: 50%; /* Adjust this value to move it higher or lower */
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3; /* Ensure the logo is above the overlay */
+    z-index: 3;
     padding: 20px;
     border-radius: 10px;
 }
 
-/* Box styling for sections */
+/* Grid Styles */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -217,50 +207,46 @@ main {
     max-width: 1200px;
 }
 
-/* Info box styling */
+/* Info Box Styles */
 .info-box {
-    background-color: black; /* Black background */
+    background-color: black;
     padding: 15px;
-    border-radius: 25px 0 25px 0;
+    border-radius: 25px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     min-height: 150px;
     width: 90%;
     margin: 0 auto;
-    position: relative; /* Required for the pseudo-element */
-    overflow: hidden; /* Hide overflow for the gradient */
-    transition: transform 0.3s ease; /* Smooth scaling effect */
-    border: 2px solid #bc0000; /* Red outline */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 2px solid #bc0000;
 }
 
-/* Gradient effect on hover */
 .info-box::after {
     content: "";
     position: absolute;
-    bottom: -100%; /* Start below the box */
+    bottom: -100%;
     left: 0;
     width: 100%;
-    height: 100%; /* Full height to create gradient */
-    background: linear-gradient(to top, rgba(188, 0, 0, 0.7), rgba(188, 0, 0, 0)); /* Red gradient */
-    transition: bottom 0.3s ease; /* Smooth transition for the gradient */
-    z-index: 1; /* Ensure gradient is behind the text */
+    height: 100%;
+    background: linear-gradient(to top, rgba(188, 0, 0, 0.7), rgba(188, 0, 0, 0));
+    transition: bottom 0.3s ease;
+    z-index: 1;
 }
 
-/* Text styling */
 .info-box h4,
 .info-box p {
-    position: relative; /* Required for z-index to work */
-    z-index: 2; /* Ensure text is in front of the gradient */
+    position: relative;
+    z-index: 2;
 }
 
-/* Hover effect */
 .info-box:hover {
-    transform: scale(1.05); /* Scale up the box */
+    transform: scale(1.05);
 }
 
 .info-box:hover::after {
-    bottom: 0; /* Move the gradient up to cover the box */
+    bottom: 0;
 }
-
 
 .info-box ul,
 .info-box p {
@@ -269,7 +255,7 @@ main {
     list-style-type: none;
 }
 
-/* Styles for the last row (Reception and Legacy) */
+/* Last Row Styles */
 .last-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -279,19 +265,19 @@ main {
     justify-items: center;
 }
 
-/* Hidden class for menu */
+/* Hidden Class for Menu */
 .hidden {
     display: none;
 }
 
-/* Menu icon styling */
+/* Menu Icon Styles */
 .menu-icon {
     display: none;
     font-size: 28px;
     cursor: pointer;
 }
 
-/* Mobile styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -322,7 +308,7 @@ main {
     }
 }
 
-/* On larger screens, show the menu all the time */
+/* Larger Screen Styles */
 @media (min-width: 769px) {
     .menu-icon {
         display: none;
@@ -333,13 +319,13 @@ main {
     }
 }
 
-/* Character container styling */
+/* Character Container Styles */
 .character-container {
-    background-color: black; /* Black background */
+    background-color: black;
     padding: 20px;
     border-radius: 10px;
 }
 
 .character-container img {
-    border: 2px solid white; /* White border around images */
+    border: 2px solid white;
 }
